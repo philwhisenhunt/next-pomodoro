@@ -5,14 +5,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
   <title>Pomodoro Clock</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Anton', sans-serif;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      color: honeydew;
+      background: grey;
+    }
+
+    #app {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+    }
+
+    #app>* {
+      margin: 12px;
+      /* border: solid skyblue 5px; */
+    }
+
+    #ticker {
+      font-size: 7vw;
+      display: flex;
+      align-items: center;
+      padding: 3vw;
+    }
+
+    #status {
+      font-size: 7vw;
+      display: flex;
+      align-items: center;
+    }
+
+    #adders {
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+    }
+  </style>
 </head>
 
 <body>
   <div id="app">
     <div id="status"></div>
-    <div id="ticker"> 0</div>
+    <h1 id="ticker"> 0</h1>
     <button id="pause">Pause/Play </button>
+
+    <!-- hidden until step 6 -->
+    <div id="adders" style="display:none">
+      <div id='workControls'>
+        <h3>work </h3>
+        <h1 id="addWorkTime">+</h1>
+        <h3 id="workTime"></h3>
+        <h1 id="subtractWork">-</h1>
+      </div>
+      <div id='breakControls'>
+        <h3>break</h3>
+        <h1 id="addBreak">+</h1>
+        <h3 id="breakTime"></h3>
+        <h1 id="subtractBreak">-</h1>
+      </div>
+    </div>
+    <!--  -->
+
   </div>
   <!-- change the script that is being loaded to view a different step -->
   <script src="./steps/6.js" async defer></script>
