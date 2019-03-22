@@ -1,87 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+      href="https://fonts.googleapis.com/css?family=Anton"
+      rel="stylesheet"
+    />
 
-  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <title>Pomodoro Clock</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        font-family: "Anton", sans-serif;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        color: honeydew;
+        background: grey;
+      }
+      .myButton {
+        -moz-box-shadow: 0px 13px 15px -7px #276873;
+        -webkit-box-shadow: 0px 13px 15px -7px #276873;
+        box-shadow: 0px 13px 15px -7px #276873;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          color-stop(0.05, #599bb3),
+          color-stop(1, #408c99)
+        );
+        background: -moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background: -webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background: -o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background: -ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+        background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+        background-color: #599bb3;
+        -moz-border-radius: 42px;
+        -webkit-border-radius: 42px;
+        border-radius: 42px;
+        border: 12px solid #29668f;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Verdana;
+        font-size: 28px;
+        font-weight: bold;
+        padding: 32px 15px;
+        text-decoration: none;
+        text-shadow: 0px 4px 0px #3d768a;
+      }
+      .myButton:hover {
+        background: -webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          color-stop(0.05, #408c99),
+          color-stop(1, #599bb3)
+        );
+        background: -moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+        background: -webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+        background: -o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+        background: -ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+        background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+        background-color: #408c99;
+      }
+      .myButton:active {
+        position: relative;
+        top: 1px;
+      }
 
-  <title>Pomodoro Clock</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      height: 100vh;
-      font-family: 'Anton', sans-serif;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      color: honeydew;
-      background: grey;
-    }
+      #app {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+      }
+      #app > * {
+        margin: 12px;
+        /* border: solid skyblue 5px; */
+      }
+      #ticker {
+        font-size: 7vw;
+        display: flex;
+        align-items: center;
+        padding: 3vw;
+      }
+      #status {
+        width: 100%;
+        justify-content: center;
+        font-size: 7vw;
+        display: flex;
+        align-items: center;
+      }
+      #adders {
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
 
-    #app {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-content: center;
-    }
+  <body>
+    <div id="app">
+      <div id="status"></div>
+      <h1 id="ticker">0</h1>
+      <button class="myButton" id="pause">Pause/Play</button>
 
-    #app>* {
-      margin: 12px;
-      /* border: solid skyblue 5px; */
-    }
-
-    #ticker {
-      font-size: 7vw;
-      display: flex;
-      align-items: center;
-      padding: 3vw;
-    }
-
-    #status {
-      font-size: 7vw;
-      display: flex;
-      align-items: center;
-    }
-
-    #adders {
-      align-items: center;
-      align-content: center;
-      justify-content: center;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="app">
-    <div id="status"></div>
-    <h1 id="ticker"> 0</h1>
-    <button id="pause">Pause/Play </button>
-
-    <!-- hidden until step 6 -->
-    <div id="adders" style="display:none">
-      <div id='workControls'>
-        <h3>work </h3>
-        <h1 id="addWorkTime">+</h1>
-        <h3 id="workTime"></h3>
-        <h1 id="subtractWork">-</h1>
+      <!-- hidden until step 6 -->
+      <div id="adders" style="display:none">
+        <div id="workControls">
+          <h3>work</h3>
+          <h1 id="addWorkTime">+</h1>
+          <h3 id="workTime"></h3>
+          <h1 id="subtractWork">-</h1>
+        </div>
+        <div id="breakControls">
+          <h3>break</h3>
+          <h1 id="addBreak">+</h1>
+          <h3 id="breakTime"></h3>
+          <h1 id="subtractBreak">-</h1>
+        </div>
       </div>
-      <div id='breakControls'>
-        <h3>break</h3>
-        <h1 id="addBreak">+</h1>
-        <h3 id="breakTime"></h3>
-        <h1 id="subtractBreak">-</h1>
-      </div>
+      <!--  -->
     </div>
-    <!--  -->
-
-  </div>
-  <!-- change the script that is being loaded to view a different step -->
-  <script src="./steps/6.js" async defer></script>
-</body>
-
+    <!-- change the script that is being loaded to view a different step -->
+    <script src="./steps/6.js" async defer></script>
+  </body>
 </html>
