@@ -3,6 +3,7 @@ const adders = document.getElementById("adders");
 // ✨ this is where we unhide it by setting display to 'flex'
 adders.style.display = "flex";
 
+// 🔥Selecting a bunch of DOM elements🔥
 const workTimeView = document.getElementById("workTime");
 const addWork = document.getElementById("addWorkTime");
 const subtractWork = document.getElementById("subtractWork");
@@ -14,6 +15,9 @@ const subtractBreak = document.getElementById("subtractBreak");
 const ticker = document.getElementById("ticker");
 const playToggleBtn = document.getElementById("pause");
 
+const status = document.getElementById("status");
+// 🔥Selecting a bunch of DOM elements🔥
+
 const state = {
   workTime: 30,
   breakTime: 15,
@@ -23,6 +27,8 @@ const state = {
 };
 
 let { workTime, breakTime, time, paused, working } = state;
+
+// 🦍 adding the increment decrement functions
 const updateTimes = () => {
   breakTimeView.innerHTML = breakTime;
   workTimeView.innerHTML = workTime;
@@ -35,17 +41,22 @@ const dec = time => {
   time === "workTime" ? workTime-- : breakTime--;
   updateTimes();
 };
+// 🦍 adding the increment decrement functions
 
+// 🦄 toggling the play button but also
+// 🦄 turning the background grey when we pause
 playToggleBtn.addEventListener("click", () => {
   paused = !paused;
   if (paused) document.body.style.background = "grey";
 });
+
+// 💥💥💥
+// Event Listeners to handle our click events
 addWork.addEventListener("click", () => inc("workTime"));
 subtractWork.addEventListener("click", () => dec("workTime"));
 addBreak.addEventListener("click", () => inc("breakTime"));
 subtractBreak.addEventListener("click", () => dec("breakTime"));
-
-const status = document.getElementById("status");
+// 💥💥💥
 
 const refresh = () => {
   if (!paused) {
