@@ -45,13 +45,13 @@ const dec = time => {
 
 // 🦄 toggling the play button but also
 // 🦄 turning the background grey when we pause
+
+// 💥💥💥
+// Event Listeners to handle our click events
 playToggleBtn.addEventListener("click", () => {
   paused = !paused;
   if (paused) document.body.style.background = "grey";
 });
-
-// 💥💥💥
-// Event Listeners to handle our click events
 addWork.addEventListener("click", () => inc("workTime"));
 subtractWork.addEventListener("click", () => dec("workTime"));
 addBreak.addEventListener("click", () => inc("breakTime"));
