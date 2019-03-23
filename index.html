@@ -17,26 +17,28 @@
   <body>
     <div id="app">
       <div id="status"></div>
-      <h1 id="ticker">0</h1>
+      <div id="ctrl-container">
+        <h1 id="ticker">0</h1>
 
-      <!-- hidden until step 6 -->
-      <div id="adders" style="display:none">
-        <div id="workControls">
-          <h3>work</h3>
-          <h1 id="addWorkTime">+</h1>
-          <h3 id="workTime"></h3>
-          <h1 id="subtractWork">-</h1>
+        <button class="myButton" id="pause">Pause/Play</button>
+
+        <!-- hidden until step 6 -->
+        <div id="adders" style="display:none">
+          <div id="workControls">
+            <h3>work</h3>
+            <h1 id="addWorkTime">+</h1>
+            <h3 id="workTime"></h3>
+            <h1 id="subtractWork">-</h1>
+          </div>
+          <div id="breakControls">
+            <h3>break</h3>
+            <h1 id="addBreak">+</h1>
+            <h3 id="breakTime"></h3>
+            <h1 id="subtractBreak">-</h1>
+          </div>
         </div>
-        <div id="breakControls">
-          <h3>break</h3>
-          <h1 id="addBreak">+</h1>
-          <h3 id="breakTime"></h3>
-          <h1 id="subtractBreak">-</h1>
-        </div>
+        <!--  -->
       </div>
-      <!--  -->
-
-      <button class="myButton" id="pause">Pause/Play</button>
     </div>
     <!-- change the script that is being loaded to view a different step -->
     <script src="./steps/6.js" async defer></script>
