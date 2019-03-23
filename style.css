@@ -62,24 +62,18 @@ body {
     align-content: center;
 }
 
-#app>* {
-    margin: 12px;
-    /* border: solid skyblue 5px; */
-}
-
 #ticker {
-    font-size: 7vw;
+    font-size: 24vw;
     display: flex;
     align-items: center;
     padding: 3vw;
 }
 
 #status {
-    width: 100%;
-    justify-content: center;
     font-size: 7vw;
+    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 #adders {
@@ -100,4 +94,15 @@ body {
 #breakControls * {
     display: flex;
     justify-content: center
+}
+
+#ctrl-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 58vh;
+}
+
+#ctrl-container * {
+    margin-left: 12px;
 }
