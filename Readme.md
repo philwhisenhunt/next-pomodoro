@@ -7,4 +7,4 @@ Pomodoro is a popular productivity cycle.  Typically you work for 25 minutes and
 ### Steps
 The `steps` folder has individual steps that are taken to build this app. It is encouraged that you attempt to follow along without them, but if you need to reference something feel free to take a look.
 
-To view a particular step, change where the script tag points in the `index.html` file.
+To view a particular step, change where the script tag points in the `index.html` file.# next-pomodoro
