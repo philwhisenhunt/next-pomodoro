@@ -1,5 +1,11 @@
+const workTime = 30;
+const breakTime = 115;
 let time = 0;
 let paused = false;
+let working = true;
+
+
+const status = document.getElementById("status");
 
 const ticker = document.getElementById('ticker');
 const playToggleBtn = document.getElementById('pause');
@@ -10,8 +16,20 @@ playToggleBtn.addEventListener('click', () => {
 //anonymous functions don't have a name after function
 const draw = () => {
     if(!paused){
+        if(working){
+            if(time >= workTime){
+                working = false;
+                time = 0;
+            }
+        } else{
+            if(time >= breakTime){
+                working = true;
+                time = 0;
+            }
+        }
         time++;
-        console.log(time);
+        //if true, first thing, otherwise second thing
+        status.innerHTML = working ? "Keep Working" : "Take Break";
         ticker.innerHTML = time;
     }
 
