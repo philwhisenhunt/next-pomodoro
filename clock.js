@@ -4,12 +4,17 @@ let paused = false;
 const ticker = document.getElementById('ticker');
 const playToggleBtn = document.getElementById('pause');
 
-playToggleBtn.addEventListener('click', () =>console.log('clicked'));
+playToggleBtn.addEventListener('click', () => {
+    paused = !paused;
+});
 //anonymous functions don't have a name after function
 const draw = () => {
-time++;
-console.log(time);
-ticker.innerHTML = time;
+    if(!paused){
+        time++;
+        console.log(time);
+        ticker.innerHTML = time;
+    }
+
 }
 
 //implicit return
