@@ -4,7 +4,17 @@ let time = 0;
 let paused = false;
 let working = true;
 
+//this is an object literal
+const state = {
+    workTime: 30,
+    breakTime: 15,
+    time: 0,
+    pause: false,
+    working: true
+}
 
+let {workTime} = state;
+workTime
 const status = document.getElementById("status");
 
 const ticker = document.getElementById('ticker');
