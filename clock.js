@@ -1,20 +1,33 @@
-const workTime = 30;
-const breakTime = 115;
-let time = 0;
-let paused = false;
-let working = true;
+// const workTime = 30;
+// const breakTime = 115;
+// let time = 0;
+// let paused = false;
+// let working = true;
+
+//for this exercise
+adders.style.display = 'flex';
+const workTimeView = document.getElementById("workTime");
+const addWork = document.getElementById("addWorkTime");
+const subtractWork = document.getElementById("subtractWork");
+
+const breakTimeView = document.getElementById("breakTime");
+const addBreak = document.getElementById("addBreak");
+const subtractBreak = document.getElementById("subtractBreak");
+
+
 
 //this is an object literal
 const state = {
-    workTime: 30,
+    workTime: 3,
     breakTime: 15,
     time: 0,
-    pause: false,
+    paused: false,
     working: true
 }
 
-let {workTime} = state;
-workTime
+let {workTime, breakTime, time, paused, working} = state;
+
+
 const status = document.getElementById("status");
 
 const ticker = document.getElementById('ticker');
